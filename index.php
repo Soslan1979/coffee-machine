@@ -38,7 +38,7 @@
          <div class="row">
            <div class="col-6"><!--Дисплей и кружка-->
              <div class="display">
-              <span class="display-text">Выберите кофе</span>
+              <span class="display-text">ВЫБЕРИТЕ КОФЕ</span>
                <div class="progress mt-2">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
                </div>
@@ -48,7 +48,17 @@
              </div>
            </div>
            <div class="col-6"><!--Баланс, АТМ(приемник купюр), Сдача-->
-             
+             <div class="input-group mb-3"><!--нач. Вставили готовый input из Bootstrap -->
+              <input type="text" class="form-control balance" placeholder="БАЛАНС">
+              <div class="input-group-append"><!--кон.-->
+                <span class="input-group-text">&#8381;</span><!--&#8381; спец. символ Рубля-->
+              </div>
+            </div>
+              <div class="atm"><!--Добавили купюроприемник-->
+                  <img src="img/bill_acc.png" alt="Банкомат">
+              </div>
+              <botton class="btn btn-primary btn-block mt-3 change-btn">СДАЧА</botton>
+              <div class="change-box mt-3"></div>
            </div>
          </div>
         </div>

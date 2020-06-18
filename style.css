@@ -2,11 +2,11 @@
   background-image: url("img/background.jpg");
   background-size: cover;/*cover покрыть полностью, contain поместить по ширине */
   background-repeat: no-repeat; /*не повторять картинку*/
-}
+} 
 
 .coffee-item {/*прозрачный черный фон*/
   background-color: rgba(0, 0, 0, .7);
-  border-radius: 50px;
+  border-radius: calc(75px / 2); /*Калькулятор*/
   margin: 15px;
   cursor: pointer; /*курсор "пальчик"*/
 }
@@ -18,7 +18,7 @@
 .coffee-item img {/*белые круглые иконки*/
   background-color: white;
   border-radius: 50%;
-  height: 100px;
+  height: 75px;
 }
 .coffee-item span {/*белый шрифт span <font size="5" color="red" face="Arial">*/
   color: white;
@@ -41,6 +41,15 @@
   width: 100%;
 }
 
+.atm img {
+  width: 100%;
+}
+
+.change-box {
+  background: grey; 
+  border: 2px solid black;
+  min-height: 100px;
+}
 
 
 
