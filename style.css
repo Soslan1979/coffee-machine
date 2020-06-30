@@ -37,6 +37,14 @@
   padding: 10px;
 }
 
+.pointer {
+  cursor: pointer;
+}
+.cup {
+  display: none;
+  opacity: 0;
+}
+
 .cup img {
   width: 100%;
 }
@@ -51,7 +59,9 @@
   min-height: 100px;
 }
 
-
+.money img {
+  width: 20%;
+}
 
 
 
