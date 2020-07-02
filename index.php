@@ -66,9 +66,9 @@
     
     </div>
     <div class="money">
+      <img src="img/50rub.jpg" alt="">
       <img src="img/100rub.jpg" alt="">
       <img src="img/500rub.jpg" alt="">
-      <img src="img/50rub.jpg" alt="">
     </div>
     
     <!-- Optional JavaScript -->

@@ -47,21 +47,9 @@ function takeCoffee() {
   changeProgress(0);
   cup.hideCup();
   changeDisplayText("Выберите кофе!");
-  cup.toggleActive()
+  cup.toggleActive();
 }
-//Планирование
-/*let timeout = setTimeout(function() {
- changeDisplayText("Передумали заказывать?");
-}, 3000); //Отрабатывается только один раз
-let interval = setInterval(function() {
-  changeDisplayText("Кофе: " + Date.now());
-}, 4000);//отрабатывает пока не отключить(каждый определеный промежуток времени)
 
-setTimeout(function() {
-  clearTimeout(timeout);//очищаем таймаут (больше не отрабатывает)
-  clearInterval(interval);//очищаем интервал (больше не оотработает)
-  console.log("Time and interval cleared")
-}, 1000);*/
 let cup = {
   elem: document.querySelector(".cup"),
   
@@ -83,7 +71,7 @@ let cup = {
   },
   
   toggleActive() {
-    cup.elem.classList.toggle("pointer")
+    cup.elem.classList.toggle("pointer");
   }
 };
 
@@ -101,6 +89,121 @@ function changeDisplayText(text) {
     displayText.innerHTML = text;
   }
 }
+
+
+//---------------------Drag'n'Drop с купюрами--------------------------
+
+let bills = document.querySelectorAll(".money img");
+
+for (let bill of bills) {
+  bill.onmousedown = dragMoney;
+}
+
+function dragMoney(event) {//Все слушатели события возвращают в функцию первым параметром объект event
+  console.log(event);//Получаем объект события
+  console.log([event.clientX, event.clientY]);//Получаем координаты мыши
+  console.log( this.getBoundingClientRect() ); //Получаем координаты элемента
+  event.preventDefault();// Остановить стандартное событие
+  let bill = this;
+  let billCoords = bill.getBoundingClientRect();
+  let billWidth = billCoords.width;
+  let billHeight = billCoords.height;
+  bill.style.position = "absolute";
+  bill.style.transform = "rotate(90deg)";
+  bill.style.top = event.clientY - billWidth/2 + "px";
+  bill.style.left = event.clientX - billHeight/2 + "px";
+  
+  window.onmousemove = function(event) {
+    /*let billCoords = bill.getBoundingClientRect();
+    let billWidth = billCoords.width;
+    let billHeight = billCoords.height;*/
+    bill.style.top = event.clientY - billHeight/2 + "px";
+    bill.style.left = event.clientX - billWidth/2 + "px";
+  };
+  
+  bill.onmouseup = function() {
+    console.log( inAtm(bill) );
+    window.onmousemove = null;
+    bill.style.transform = "rotate(0deg)";
+  };
+}
+
+function inAtm(bill) {
+  let atm = document.querySelector(".atm img");
+  
+  let atmCoords = atm.getBoundingClientRect();
+  let atmWidth = atmCoords.width;
+  let atmHeight = atmCoords.height;
+  
+  let billCoords = bill.getBoundingClientRect();
+  let billHeight = billCoords.height;
+  let billWidth = billCoords.width;
+  
+  let atmLeftX = atmCoords.x;
+  let atmTopY = atmCoords.y;
+  let atmRightX = atmLeftX + atmWidth;
+  let atmBottomY = atmTopY + atmHeight/3;
+  
+  let billLeftX = billCoords.x;
+  let billRightX = billCoords.x + billCoords.width;
+  let billY = billCoords.y;
+  
+  
+  console.log([atmLeftX, atmTopY, atmRightX, atmBottomY]);
+  console.log([billCoords.x, billCoords.y]);
+  
+  if (billLeftX > atmLeftX
+      && billRightX < atmRightX
+      && billY > atmTopY
+      && billY < atmBottomY
+   ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
