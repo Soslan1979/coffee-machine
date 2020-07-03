@@ -49,12 +49,13 @@
            </div>
            <div class="col-6"><!--Баланс, АТМ(приемник купюр), Сдача-->
              <div class="input-group mb-3"><!--нач. Вставили готовый input из Bootstrap -->
-              <input type="text" class="form-control balance" placeholder="БАЛАНС">
+              <input type="text" class="form-control balance" placeholder="БАЛАНС" readonly>
               <div class="input-group-append"><!--кон.-->
                 <span class="input-group-text">&#8381;</span><!--&#8381; спец. символ Рубля-->
               </div>
             </div>
               <div class="atm"><!--Добавили купюроприемник-->
+                  <div class="cash-catcher"></div>
                   <img src="img/bill_acc.png" alt="Банкомат">
               </div>
               <botton class="btn btn-primary btn-block mt-3 change-btn">СДАЧА</botton>
@@ -66,9 +67,9 @@
     
     </div>
     <div class="money">
-      <img src="img/50rub.jpg" alt="">
-      <img src="img/100rub.jpg" alt="">
-      <img src="img/500rub.jpg" alt="">
+      <img src="img/50rub.jpg" cost="50" alt="">
+      <img src="img/100rub.jpg" cost="100" alt="">
+      <img src="img/500rub.jpg" cost="500" alt="">
     </div>
     
     <!-- Optional JavaScript -->
